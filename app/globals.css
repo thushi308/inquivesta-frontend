@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   INQUIVESTA THEME TOKENS
+   Edit colors/spacing here ONCE — every page and component reads from
+   these variables (via tailwind.config.js), so the whole site stays
+   consistent when you change a value in this one block.
+   ========================================================================= */
+:root {
+  /* Chalkboard-green base instead of flat black — warmer, more "lab at
+     night" than the usual near-black-plus-neon look. */
+  --color-board: #14231f;
+  --color-board-alt: #1d3128;
+  --color-board-line: rgba(245, 241, 230, 0.14);
+
+  /* Warm paper for light panels/cards (chalk-on-paper, not cream-latte). */
+  --color-paper: #f5f1e6;
+  --color-ink: #142019;
+
+  /* Accents: bunsen-flame marigold + ember coral, used deliberately, not
+     as an all-over neon wash. */
+  --color-marigold: #ffb627;
+  --color-ember: #ff6b4a;
+  --color-chalkteal: #5fd8c3;
+
+  --container-padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2.5rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.container-inquivesta {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Respect reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus ring everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-marigold);
+  outline-offset: 3px;
+}
+
+/* Dotted trajectory line used as a recurring structural motif (this is a
+   science/astronomy fest, so orbit paths are literal content, not
+   decoration-for-decoration's-sake). */
+.trajectory-dot {
+  background-image: radial-gradient(
+    circle,
+    var(--color-board-line) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 14px 14px;
+}
